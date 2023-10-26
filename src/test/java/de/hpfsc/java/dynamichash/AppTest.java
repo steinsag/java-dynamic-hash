@@ -33,18 +33,18 @@ public class AppTest {
     @ParameterizedTest
     @ValueSource(ints = {-1, 0, 1, 3, 17})
     public void checkInvalidArguments(int invalidLength) {
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            App.getHash("some message", invalidLength);
-        });
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
+                () -> App.getHash("some message", invalidLength)
+        );
     }
 
     @Test
     public void checkInvalidMessages() {
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            App.getHash("", 16);
-        });
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            App.getHash(null, 16);
-        });
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
+                () -> App.getHash("", 16)
+        );
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
+                () -> App.getHash(null, 16)
+        );
     }
 }
